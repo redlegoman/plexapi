@@ -17,7 +17,7 @@ for section in plex.library.sections():
   print(section.title +"|"+section.type)
   music = plex.library.section(section.title)
   if section.type == "artist":
-    for item in music.searchAlbums(**{"addedAt>>": "2d"}):
+    for item in music.searchAlbums(**{"addedAt>>": "20d"}):
       print(item)
       item.refresh()
 
