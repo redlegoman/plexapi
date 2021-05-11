@@ -1,5 +1,6 @@
 #!/usr/bin/python3
 from plexapi.myplex import MyPlexAccount
+import sys
 
 #
 # this really simple script gets the items last added to each section,
@@ -9,6 +10,9 @@ from plexapi.myplex import MyPlexAccount
 # account = MyPlexAccount('<email>', '<password>')
 # username and password found in ~/.config/plexapi/config.ini 
 # see: https://python-plexapi.readthedocs.io/en/latest/configuration.html
+
+days=str(sys.argv[1])
+
 account = MyPlexAccount()
 plex = account.resource('plex').connect()  # returns a PlexServer instance
 
@@ -17,7 +21,8 @@ for section in plex.library.sections():
   print(section.title +"|"+section.type)
   music = plex.library.section(section.title)
   if section.type == "artist":
-    for item in music.searchAlbums(**{"addedAt>>": "20d"}):
+    #for item in music.searchAlbums(**{"addedAt>>": "20d"}):
+    for item in music.searchAlbums(**{"addedAt>>": days}):
       print(item)
       item.refresh()
 
