@@ -10,8 +10,12 @@ import sys
 # account = MyPlexAccount('<email>', '<password>')
 # username and password found in ~/.config/plexapi/config.ini 
 # see: https://python-plexapi.readthedocs.io/en/latest/configuration.html
+try:
+  days=str(sys.argv[1])
+except:
+  days="1d"
 
-days=str(sys.argv[1])
+print(days)
 
 account = MyPlexAccount()
 plex = account.resource('plex').connect()  # returns a PlexServer instance
