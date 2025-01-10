@@ -29,7 +29,8 @@ for lib in plex.library.sections():
       print(lib.title +", "+ lib.uuid+", "+path)
       print("-- scanning "+lib.title)
       scan = lib.update()
-      print(scan)
+      #print(scan)
+      lib.update()
       #scan = plex.library.librarysection.update(path)
 
 #exit()
