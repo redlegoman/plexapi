@@ -25,25 +25,9 @@ plex_library = plex.library.section('Music: Tidal tmp')
 
 for lib in plex.library.sections():
   for path in lib.locations:
-    if lib.uuid == "39725fb1-2c23-45ec-9277-a1b7c5b77f09" or lib.uuid == "f2497ca5-6d89-47e8-b1de-fd4763fa4e67" or lib.uuid == "bc1c2250-2c8c-4151-96db-de8e3dec0ae7":
-      print(lib.title +","+ lib.uuid)
-      print(path)
-      print(" -- scanning "+lib.title)
-      scan = lib.update()
-      print(scan)
-      print()
-      #scan = plex.library.librarysection.update(path)
+    if lib.title.startswith("Music:"):
+      print(lib.title +","+ lib.uuid +", "+path)
 
-#exit()
+exit()
 
-
-
-for section in plex.library.sections():
-  print(section.title +"|"+section.type)
-  music = plex.library.section(section.title)
-  if section.type == "artist":
-    #for item in music.searchAlbums(**{"addedAt>>": "20d"}):
-    for item in music.searchAlbums(**{"addedAt>>": days}):
-      print(item)
-      item.refresh()
 
