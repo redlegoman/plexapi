@@ -25,7 +25,12 @@ plex_library = plex.library.section('Music: Tidal tmp')
 
 for lib in plex.library.sections():
   for path in lib.locations:
-    if lib.uuid == "39725fb1-2c23-45ec-9277-a1b7c5b77f09" or lib.uuid == "f2497ca5-6d89-47e8-b1de-fd4763fa4e67" or lib.uuid == "bc1c2250-2c8c-4151-96db-de8e3dec0ae7":
+    if  (
+        lib.uuid == "7fac9aef-a5e7-4caa-80da-5dd548475c9c" or
+        lib.uuid == "39725fb1-2c23-45ec-9277-a1b7c5b77f09" or 
+        lib.uuid == "f2497ca5-6d89-47e8-b1de-fd4763fa4e67" or 
+        lib.uuid == "bc1c2250-2c8c-4151-96db-de8e3dec0ae7"  
+        ):
       print(lib.title +", "+ lib.uuid+", "+path)
       print("-- scanning "+lib.title)
       scan = lib.update()
